@@ -16,7 +16,19 @@ jobs:
         with:
           python-version: '3.13'
 
-      - run: python -m pip install ollama
+      - name: Install Ollama Python Client
+        run: python -m pip install ollama
+
+      - name: Install Ollama
+        run: curl -fsSL https://ollama.com/install.sh | sh
+
+      - name: Start Ollama
+        run: |
+          ollama serve &
+          sleep 10
+
+      - name: Pull Model
+        run: ollama pull llama3.2
 
       - name: Generate Test Cases
         run: python agents/agent_generate_tcs.py
