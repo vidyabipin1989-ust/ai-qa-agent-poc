@@ -7,34 +7,43 @@ on:
 
 jobs:
   generate:
-    runs-on: ubuntu-latest
+    runs-on:**buntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - **me: Checkout Code
+        uses: a**ions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: S**up Python
+        uses: actions/s**up-python@v5
         with:
-          python-version: '3.11'
+      **  python-version: '3.11'
 
-      - name: Install Dependencies
+      -**ame: Install Dependencies
+       **un: |
+          pip install ollam**
+      - name: Install Ollama
+   **   run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+
+ **   - name: Start Ollama
+        r**: |
+          ollama serve &
+    **    sleep 10
+
+      -**ame: Pull Model
         run: |
-          pip install anthropic
+  **      ollama pull llama3.2
 
-      - name: Generate TCs
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+     ** name: Generate TCs
+        run: **          python agent_generate_t**.py
+
+      - name: Commit Generat** Files
         run: |
-          python agent_generate_tcs.py
+          g** config user.name "github-actions**ot]"
+          git config user.em**l "41898282+github-actions[bot]@u**rs.noreply.github.com"
 
-      - name: Commit Generated Files
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+         **it add tcs/
 
-          git add tcs/
+          git diff -**ached --quiet || git commit -m "G**erated test cases"
 
-          git diff --cached --quiet || git commit -m "Generated test cases"
-
-          git push
+          git**ush
