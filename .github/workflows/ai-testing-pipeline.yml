@@ -19,7 +19,7 @@ jobs:
       - run: python -m pip install ollama
 
       - name: Generate Test Cases
-        run: python agent_generate_tcs.py
+        run: python agents/agent_generate_tcs.py
 
       - name: Commit Generated Files
         run: |
