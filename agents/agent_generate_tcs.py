@@ -1,15 +1,14 @@
-from anthropic import Anthropic
+from ollama import chat
 import os
 import json
 
-client = Anthropic()
-
+# Read user story
 with open("stories/story.txt", "r") as f:
-story = f.read()
+    story = f.read()
 
-response = client.messages.create(
-    model="claude-sonnet-4-6",
-    max_tokens=2000,
+# Generate test cases
+response = chat(
+    model="llama3.2",
     messages=[
         {
             "role": "user",
@@ -32,14 +31,18 @@ User Story:
     ]
 )
 
-result = json.loads(response.content[0].text)
+# Get model output
+result = json.loads(response["message"]["content"])
 
+# Create output directory
 os.makedirs("tcs", exist_ok=True)
 
+# Dynamic filename
 file_name = result.get("story_id", "testcases")
 
 output_file = f"tcs/{file_name}.json"
 
+# Save JSON
 with open(output_file, "w") as f:
     json.dump(result, f, indent=2)
 
