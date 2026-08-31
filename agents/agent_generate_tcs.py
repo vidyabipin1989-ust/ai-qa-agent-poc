@@ -1,5 +1,6 @@
 from anthropic import Anthropic
 import os
+import json
 
 client = Anthropic()
 
@@ -16,7 +17,13 @@ response = client.messages.create(
             "role": "user",
             "content": f"""
 Generate test cases for the following user story.
-Return ONLY valid JSON.
+
+Return ONLY valid JSON in the format:
+
+{{
+  "story_id": "short_unique_name",
+  "test_cases": [...]
+}}
 
 User Story:
 {story}
@@ -25,11 +32,19 @@ User Story:
     ]
 )
 
+# Parse Claude's response
+result = json.loads(response.content[0].text)
+
 # Create folder if it doesn't exist
 os.makedirs("tcs", exist_ok=True)
 
-# Save response as JSON file
-with open("tcs/testcases.json", "w") as f:
-    f.write(response.content[0].text)
+# Dynamic filename
+file_name = result["story_id"]
 
-print("Test cases saved to tcs/testcases.json")
+# Save JSON
+output_file = f"tcs/{file_name}.json"
+
+with open(output_file, "w") as f:
+    json.dump(result, f, indent=2)
+
+print(f"Test cases saved to {output_file}")
