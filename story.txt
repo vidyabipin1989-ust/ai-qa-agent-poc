@@ -1,1 +1,3 @@
-As a user, I want to login using valid credentials so that I can access my account.
+Story ID: US001
+
+As a user, I want to login with valid credentials so that I can access the application.
