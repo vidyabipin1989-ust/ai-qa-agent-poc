@@ -4,9 +4,8 @@ import json
 
 client = Anthropic()
 
-# Read user story
-with open("story.txt", "r") as f:
-    story = f.read()
+with open("stories/story.txt", "r") as f:
+story = f.read()
 
 response = client.messages.create(
     model="claude-sonnet-4-6",
