@@ -1,0 +1,21 @@
+{
+  "story_id": "Test001",
+  "test_cases": [
+    {
+      "test_name": "Valid Username and Password",
+      "test_data": {
+        "username": "valid_username",
+        "password": "valid_password"
+      },
+      "expected_result": "Login Success"
+    },
+    {
+      "test_name": "Invalid Username and Password",
+      "test_data": {
+        "username": "invalid_username",
+        "password": "invalid_password"
+      },
+      "expected_result": "Invalid Credentials"
+    }
+  ]
+}
