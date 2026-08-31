@@ -15,4 +15,17 @@ response = client.messages.create(
     ]
 )
 
-print(response.content[0].text)
+# Get the generated test cases
+
+test_cases = response.content[0].text
+
+ 
+
+# Save to a file
+
+with open("testcases.txt", "w") as f:
+f.write(test_cases)
+
+ 
+
+print(test_cases)
