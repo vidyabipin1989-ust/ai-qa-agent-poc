@@ -66,9 +66,14 @@ jobs:
       # -----------------------------
       # Pull Model ONLY if not cached
       # -----------------------------
-      - name: Pull Model
-        if: steps.ollama-cache.outputs.cache-hit != 'true'
-        run: ollama pull llama3.2
+      - name: Verify and Pull Model
+        run: |
+          if ollama list | grep -q "llama3.2"; then
+            echo "llama3.2 model already available"
+          else
+            echo "llama3.2 model not found. Pulling model..."
+            ollama pull llama3.2
+          fi
 
 
       # -----------------------------
