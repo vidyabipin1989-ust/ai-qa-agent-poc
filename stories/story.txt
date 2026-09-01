@@ -1,2 +1,29 @@
-Story ID: Test001
-As a user, I want to login with valid credentials so that I can access the application.
+Story ID: LOGIN-001
+
+User Story:
+As a registered user,
+I want to log in using my registered email address and password,
+So that I can securely access my account.
+
+Acceptance Criteria:
+
+1. The user should be able to log in using a valid registered email address and correct password.
+
+2. The user should see an appropriate error message when an invalid email address or password is entered.
+
+3. The email address field is mandatory.
+
+4. The password field is mandatory.
+
+5. The email address must be in a valid email format.
+
+6. The password field should mask the entered characters.
+
+7. The user account should be locked after 5 consecutive unsuccessful login attempts.
+
+8. Once the account is locked, the user should see an appropriate account lock message.
+
+9. The user should be redirected to the dashboard after a successful login.
+
+10. The user should remain logged in until they explicitly log out or their session expires.
+
