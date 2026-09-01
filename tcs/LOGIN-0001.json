@@ -1,0 +1,166 @@
+{
+  "story_id": "LOGIN-0001",
+  "test_cases": [
+    {
+      "test_case_id": "TC-001",
+      "title": "Valid credentials",
+      "description": "Test successful login with valid credentials",
+      "preconditions": "User has a registered account with a valid email address and password",
+      "test_steps": [
+        "Enter valid registered email address",
+        "Enter correct password",
+        "Click login button"
+      ],
+      "test_data": {
+        "email": "valid@example.com",
+        "password": "correct_password"
+      },
+      "expected_result": "Successful login",
+      "priority": "High",
+      "test_type": "Positive"
+    },
+    {
+      "test_case_id": "TC-002",
+      "title": "Invalid email address",
+      "description": "Test unsuccessful login with invalid email address",
+      "preconditions": "User has a registered account with a valid email address and password",
+      "test_steps": [
+        "Enter invalid email address",
+        "Enter correct password",
+        "Click login button"
+      ],
+      "test_data": {
+        "email": "invalid_email",
+        "password": "correct_password"
+      },
+      "expected_result": "Error message displayed",
+      "priority": "Medium",
+      "test_type": "Negative"
+    },
+    {
+      "test_case_id": "TC-003",
+      "title": "Invalid password",
+      "description": "Test unsuccessful login with invalid password",
+      "preconditions": "User has a registered account with a valid email address and password",
+      "test_steps": [
+        "Enter valid registered email address",
+        "Enter incorrect password",
+        "Click login button"
+      ],
+      "test_data": {
+        "email": "valid@example.com",
+        "password": "incorrect_password"
+      },
+      "expected_result": "Error message displayed",
+      "priority": "Medium",
+      "test_type": "Negative"
+    },
+    {
+      "test_case_id": "TC-004",
+      "title": "Empty email address",
+      "description": "Test login with empty email address",
+      "preconditions": "User has a registered account with a valid email address and password",
+      "test_steps": [
+        "Leave email address field blank",
+        "Enter correct password",
+        "Click login button"
+      ],
+      "test_data": {
+        "email": "",
+        "password": "correct_password"
+      },
+      "expected_result": "Error message displayed",
+      "priority": "Low",
+      "test_type": "Negative"
+    },
+    {
+      "test_case_id": "TC-005",
+      "title": "Empty password",
+      "description": "Test login with empty password",
+      "preconditions": "User has a registered account with a valid email address and password",
+      "test_steps": [
+        "Enter valid registered email address",
+        "Leave password field blank",
+        "Click login button"
+      ],
+      "test_data": {
+        "email": "valid@example.com",
+        "password": ""
+      },
+      "expected_result": "Error message displayed",
+      "priority": "Low",
+      "test_type": "Negative"
+    },
+    {
+      "test_case_id": "TC-006",
+      "title": "Account lock",
+      "description": "Test account lock after 5 consecutive unsuccessful login attempts",
+      "preconditions": "User has a registered account with a valid email address and password, 5 consecutive unsuccessful login attempts",
+      "test_steps": [
+        "Enter incorrect email address",
+        "Enter incorrect password",
+        "Click login button (5 times)"
+      ],
+      "test_data": {
+        "email": "invalid@example.com",
+        "password": "incorrect_password"
+      },
+      "expected_result": "Account lock message displayed",
+      "priority": "High",
+      "test_type": "Positive"
+    },
+    {
+      "test_case_id": "TC-007",
+      "title": "Account lock message",
+      "description": "Test account lock message after 5 consecutive unsuccessful login attempts",
+      "preconditions": "User has a registered account with a valid email address and password, 5 consecutive unsuccessful login attempts",
+      "test_steps": [
+        "Enter incorrect email address",
+        "Enter incorrect password",
+        "Click login button (5 times)"
+      ],
+      "test_data": {
+        "email": "invalid@example.com",
+        "password": "incorrect_password"
+      },
+      "expected_result": "Account lock message displayed",
+      "priority": "High",
+      "test_type": "Positive"
+    },
+    {
+      "test_case_id": "TC-008",
+      "title": "Dashboard redirect",
+      "description": "Test successful login and redirect to dashboard",
+      "preconditions": "User has a registered account with a valid email address and password",
+      "test_steps": [
+        "Enter valid registered email address",
+        "Enter correct password",
+        "Click login button"
+      ],
+      "test_data": {
+        "email": "valid@example.com",
+        "password": "correct_password"
+      },
+      "expected_result": "Redirected to dashboard",
+      "priority": "High",
+      "test_type": "Positive"
+    },
+    {
+      "test_case_id": "TC-009",
+      "title": "Session expiration",
+      "description": "Test session expiration after user is logged out",
+      "preconditions": "User has a registered account with a valid email address and password, logged in",
+      "test_steps": [
+        "Log out",
+        "Wait for session to expire"
+      ],
+      "test_data": {
+        "email": "valid@example.com",
+        "password": "correct_password"
+      },
+      "expected_result": "Session expired",
+      "priority": "Medium",
+      "test_type": "Positive"
+    }
+  ]
+}
