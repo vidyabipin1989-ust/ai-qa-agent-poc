@@ -2,20 +2,18 @@ Story ID: LOGIN-0001
 
 User Story:
 As a registered user,
-I want to log in using my registered email address and password,
+I want to log in using my registered username and password,
 So that I can securely access my account.
 
 Acceptance Criteria:
 
-1. The user should be able to log in using a valid registered email address and correct password which is student and password123
+1. The user should be able to log in using a valid registered username and correct password which is always student and password123
 
-2. The user should see an appropriate error message when an invalid email address or password is entered.
+2. The user should see an appropriate error message when an invalid username or password is entered.
 
-3. The email address field is mandatory.
+3. The username field is mandatory.
 
 4. The password field is mandatory.
-
-5. The email address must be in a valid email format.
 
 6. The password field should mask the entered characters.
 
