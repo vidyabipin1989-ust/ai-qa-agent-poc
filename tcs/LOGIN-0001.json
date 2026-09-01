@@ -1,0 +1,131 @@
+{
+  "story_id": "LOGIN-0001",
+  "test_cases": [
+    {
+      "test_case_id": "TC-001",
+      "title": "Valid Login",
+      "description": "Test successful login with valid credentials",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid username: student",
+        "Enter valid password: password123",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "student",
+        "password": "password123"
+      },
+      "expected_result": "Dashboard page",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-002",
+      "title": "Invalid Username",
+      "description": "Test login with invalid username",
+      "preconditions": [],
+      "test_steps": [
+        "Enter invalid username: invalid_student",
+        "Enter correct password: password123",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "invalid_student",
+        "password": "password123"
+      },
+      "expected_result": "Error message: Invalid username or password",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-003",
+      "title": "Invalid Password",
+      "description": "Test login with invalid password",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid username: student",
+        "Enter invalid password: wrong_password",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "student",
+        "password": "wrong_password"
+      },
+      "expected_result": "Error message: Invalid username or password",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-004",
+      "title": "Missing Username",
+      "description": "Test login with missing username",
+      "preconditions": [],
+      "test_steps": [
+        "Leave username field blank",
+        "Enter valid password: password123",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "",
+        "password": "password123"
+      },
+      "expected_result": "Error message: Username field is required",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-005",
+      "title": "Missing Password",
+      "description": "Test login with missing password",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid username: student",
+        "Leave password field blank",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "student",
+        "password": ""
+      },
+      "expected_result": "Error message: Password field is required",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-006",
+      "title": "Masked Password",
+      "description": "Test password masking",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid username: student",
+        "Enter valid password: password123",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "student",
+        "password": "password123"
+      },
+      "expected_result": "Password field masked",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-007",
+      "title": "Successful Logout",
+      "description": "Test successful logout",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid username: student",
+        "Enter valid password: password123",
+        "Click Logout button"
+      ],
+      "test_data": {
+        "username": "student",
+        "password": "password123"
+      },
+      "expected_result": "Login page",
+      "priority": "Medium",
+      "test_type": "Functional"
+    }
+  ]
+}
