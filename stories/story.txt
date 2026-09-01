@@ -7,7 +7,7 @@ So that I can securely access my account.
 
 Acceptance Criteria:
 
-1. The user should be able to log in using a valid registered email address and correct password.
+1. The user should be able to log in using a valid registered email address and correct password which is student and password123
 
 2. The user should see an appropriate error message when an invalid email address or password is entered.
 
@@ -19,11 +19,7 @@ Acceptance Criteria:
 
 6. The password field should mask the entered characters.
 
-7. The user account should be locked after 5 consecutive unsuccessful login attempts.
+7. The user should be redirected to the dashboard after a successful login.
 
-8. Once the account is locked, the user should see an appropriate account lock message.
-
-9. The user should be redirected to the dashboard after a successful login.
-
-10. The user should remain logged in until they explicitly log out or their session expires.
+8. The user should remain logged in until they explicitly log out or their session expires.
 
