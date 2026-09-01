@@ -109,10 +109,10 @@ Return exactly this structure:
 "page_file_name": "LoginPage.js",
 "page_object_code": "complete JavaScript code",
 
-```
+
 "test_file_name": "login.spec.js",
 "test_code": "complete JavaScript code"
-```
+
 
 }
 
@@ -130,7 +130,7 @@ Escape new lines correctly so that the response remains valid JSON.
 
 def get_test_case_file():
 
-```
+
 files = [
 
     file
@@ -152,7 +152,7 @@ return os.path.join(
     TC_DIRECTORY,
     files[0]
 )
-```
+
 
 # =========================================================
 
@@ -162,7 +162,7 @@ return os.path.join(
 
 def read_test_cases():
 
-```
+
 tc_file = get_test_case_file()
 
 print(f"\nReading test cases: {tc_file}")
@@ -176,7 +176,7 @@ with open(
     test_case_data = json.load(file)
 
 return test_case_data, tc_file
-```
+
 
 # =========================================================
 
@@ -186,7 +186,7 @@ return test_case_data, tc_file
 
 async def inspect_application():
 
-```
+
 if not APP_URL:
 
     raise Exception(
@@ -289,7 +289,7 @@ async with async_playwright() as p:
         "elements": elements
 
     }
-```
+
 
 # =========================================================
 
@@ -299,7 +299,7 @@ async with async_playwright() as p:
 
 def generate_automation_code(
 
-```
+
 test_case_data,
 
 dom_information,
@@ -309,13 +309,13 @@ tc_file
 
 ):
 
-```
+
 # Convert Windows paths to forward slashes
 tc_file_path = tc_file.replace("\\", "/")
 
 
 user_prompt = f"""
-```
+
 
 APPLICATION URL:
 
@@ -387,7 +387,7 @@ Return ONLY the required JSON object.
 
 """
 
-```
+
 response = chat(
 
     model="llama3.2",
@@ -416,7 +416,7 @@ response = chat(
 
 
 return response["message"]["content"]
-```
+
 
 # =========================================================
 
@@ -426,7 +426,7 @@ return response["message"]["content"]
 
 def clean_llm_response(response):
 
-````
+
 response = response.strip()
 
 
@@ -467,7 +467,7 @@ response = re.sub(
 
 
 return response.strip()
-````
+
 
 # =========================================================
 
@@ -477,7 +477,7 @@ return response.strip()
 
 def save_generated_files(result):
 
-```
+
 os.makedirs(
     OUTPUT_PAGE_DIRECTORY,
     exist_ok=True
@@ -565,7 +565,7 @@ print(f"Test Script: {test_file_path}")
 
 async def run_agent():
 
-```
+
 print("\n======================================")
 
 print("PLAYWRIGHT AUTOMATION AGENT STARTED")
@@ -758,10 +758,10 @@ print("======================================")
 
 if **name** == "**main**":
 
-```
+
 asyncio.run(
 
     run_agent()
 
 )
-```
+
