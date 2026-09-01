@@ -1,4 +1,4 @@
-Story ID: LOGIN-0001
+Story ID: LOGIN-001
 
 User Story:
 As a registered user,
