@@ -112,7 +112,7 @@ steps:
     env:
       APP_URL: ${{ secrets.APP_URL }}
     run: |
-      python agents/agent_generate_playwright.py
+      python agents/agent_generate_scripts.py
 
 
   # ------------------------------------------
