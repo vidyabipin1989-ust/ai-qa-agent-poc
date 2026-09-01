@@ -13,31 +13,74 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
+      # -----------------------------
+      # Checkout repository
+      # -----------------------------
+      - uses: actions/checkout@v4
+       
+
+
+      # -----------------------------
+      # Setup Python
+      # -----------------------------
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
 
+
+      # -----------------------------
+      # Cache Ollama Model
+      # -----------------------------
+      - name: Restore Ollama Model Cache
+        id: ollama-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.ollama/models
+          key: ollama-llama3.2-v1
+
+
+      # -----------------------------
+      # Install Python Ollama Client
+      # -----------------------------
       - name: Install Ollama Python Client
         run: python -m pip install ollama
 
+
+      # -----------------------------
+      # Install Ollama
+      # -----------------------------
       - name: Install Ollama
         run: curl -fsSL https://ollama.com/install.sh | sh
 
+
+      # -----------------------------
+      # Start Ollama
+      # -----------------------------
       - name: Start Ollama
         run: |
           ollama serve &
           sleep 10
 
+
+      # -----------------------------
+      # Pull Model ONLY if not cached
+      # -----------------------------
       - name: Pull Model
+        if: steps.ollama-cache.outputs.cache-hit != 'true'
         run: ollama pull llama3.2
 
+
+      # -----------------------------
+      # Generate Test Cases
+      # -----------------------------
       - name: Generate Test Cases
         run: python agents/agent_generate_tcs.py
 
+
+      # -----------------------------
+      # Commit Generated Files
+      # -----------------------------
       - name: Commit Generated Files
         run: |
           git config user.name "github-actions"
