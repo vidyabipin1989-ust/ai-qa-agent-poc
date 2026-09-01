@@ -1,0 +1,131 @@
+{
+  "story_id": "LOGIN-0001",
+  "test_cases": [
+    {
+      "test_case_id": "TC-001",
+      "title": "Valid Credentials",
+      "description": "Test successful login with valid credentials",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid username: student",
+        "Enter valid password: password123",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "student",
+        "password": "password123"
+      },
+      "expected_result": "User should be redirected to dashboard",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-002",
+      "title": "Invalid Username",
+      "description": "Test login with invalid username",
+      "preconditions": [],
+      "test_steps": [
+        "Enter invalid username: wronguser",
+        "Enter correct password: password123",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "wronguser",
+        "password": "password123"
+      },
+      "expected_result": "Error message should be displayed",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-003",
+      "title": "Invalid Password",
+      "description": "Test login with invalid password",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid username: student",
+        "Enter invalid password: wrongpass",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "student",
+        "password": "wrongpass"
+      },
+      "expected_result": "Error message should be displayed",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-004",
+      "title": "Blank Username",
+      "description": "Test login with blank username",
+      "preconditions": [],
+      "test_steps": [
+        "Enter blank username: ",
+        "Enter correct password: password123",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "",
+        "password": "password123"
+      },
+      "expected_result": "Error message should be displayed",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-005",
+      "title": "Blank Password",
+      "description": "Test login with blank password",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid username: student",
+        "Enter blank password: ",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "student",
+        "password": ""
+      },
+      "expected_result": "Error message should be displayed",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-006",
+      "title": "Empty Username",
+      "description": "Test login with empty username",
+      "preconditions": [],
+      "test_steps": [
+        "Enter empty username: ",
+        "Enter correct password: password123",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "",
+        "password": "password123"
+      },
+      "expected_result": "Error message should be displayed",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-007",
+      "title": "Non-Alpha Username",
+      "description": "Test login with non-alphabetic username",
+      "preconditions": [],
+      "test_steps": [
+        "Enter non-alpha username: 12345",
+        "Enter correct password: password123",
+        "Click Login button"
+      ],
+      "test_data": {
+        "username": "12345",
+        "password": "password123"
+      },
+      "expected_result": "Error message should be displayed",
+      "priority": "High",
+      "test_type": "Functional"
+    }
+  ]
+}
