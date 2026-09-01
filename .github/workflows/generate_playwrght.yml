@@ -106,6 +106,14 @@ jobs:
           APP_URL: ${{ secrets.APP_URL }}
         run: |
           python agents/agent_generate_scripts.py
+          
+      - name: Check Generated Files
+        if: always()
+        run: |
+          echo "Checking generated files..."
+          ls -la
+          echo "----------------------"
+          find generated -type f 2>/dev/null || echo "No generated files found"
 
 
       # ------------------------------------------
