@@ -1,0 +1,95 @@
+{
+  "story_id": "LOGIN-001",
+  "test_cases": [
+    {
+      "test_case_id": "TC-001",
+      "title": "Valid Login with Correct Credentials",
+      "description": "Test login with valid registered username and correct password",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid registered username: student",
+        "Enter correct password: password123",
+        "Click on Login button"
+      ],
+      "test_data": {
+        "username": "student",
+        "password": "password123"
+      },
+      "expected_result": "User is redirected to the dashboard",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-002",
+      "title": "Invalid Username",
+      "description": "Test login with invalid username",
+      "preconditions": [],
+      "test_steps": [
+        "Enter invalid username: invaliduser",
+        "Enter correct password: password123",
+        "Click on Login button"
+      ],
+      "test_data": {
+        "username": "invaliduser",
+        "password": "password123"
+      },
+      "expected_result": "Error message is displayed",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-003",
+      "title": "Invalid Password",
+      "description": "Test login with invalid password",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid registered username: student",
+        "Enter invalid password: wrongpass",
+        "Click on Login button"
+      ],
+      "test_data": {
+        "username": "student",
+        "password": "wrongpass"
+      },
+      "expected_result": "Error message is displayed",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-004",
+      "title": "Empty Username",
+      "description": "Test login with empty username",
+      "preconditions": [],
+      "test_steps": [
+        "Enter empty username: ",
+        "Enter correct password: password123",
+        "Click on Login button"
+      ],
+      "test_data": {
+        "username": "",
+        "password": "password123"
+      },
+      "expected_result": "Error message is displayed",
+      "priority": "Medium",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-005",
+      "title": "Empty Password",
+      "description": "Test login with empty password",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid registered username: student",
+        "Enter empty password: ",
+        "Click on Login button"
+      ],
+      "test_data": {
+        "username": "student",
+        "password": ""
+      },
+      "expected_result": "Error message is displayed",
+      "priority": "Medium",
+      "test_type": "Functional"
+    }
+  ]
+}
