@@ -1,0 +1,149 @@
+{
+  "story_id": "LOGIN-0001",
+  "test_cases": [
+    {
+      "test_case_id": "TC-001",
+      "title": "Login with valid credentials",
+      "description": "Test login with valid registered email address and correct password",
+      "preconditions": [],
+      "test_steps": [
+        "Enter a valid registered email address",
+        "Enter correct password",
+        "Click the login button"
+      ],
+      "test_data": {
+        "email": "john123@example.com",
+        "password": "password123"
+      },
+      "expected_result": "Dashboard page",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-002",
+      "title": "Invalid email address login",
+      "description": "Test login with an invalid email address",
+      "preconditions": [],
+      "test_steps": [
+        "Enter an invalid email address",
+        "Enter correct password",
+        "Click the login button"
+      ],
+      "test_data": {
+        "email": "invalid@example.com",
+        "password": "password123"
+      },
+      "expected_result": "Error message",
+      "priority": "Medium",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-003",
+      "title": "Invalid password login",
+      "description": "Test login with an invalid password",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid email address",
+        "Enter incorrect password",
+        "Click the login button"
+      ],
+      "test_data": {
+        "email": "john123@example.com",
+        "password": "wrongpassword"
+      },
+      "expected_result": "Error message",
+      "priority": "Medium",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-004",
+      "title": "Empty email address login",
+      "description": "Test login with an empty email address",
+      "preconditions": [],
+      "test_steps": [
+        "Enter empty email address",
+        "Enter correct password",
+        "Click the login button"
+      ],
+      "test_data": {
+        "email": "",
+        "password": "password123"
+      },
+      "expected_result": "Error message",
+      "priority": "Low",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-005",
+      "title": "Empty password login",
+      "description": "Test login with an empty password",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid email address",
+        "Enter empty password",
+        "Click the login button"
+      ],
+      "test_data": {
+        "email": "john123@example.com",
+        "password": ""
+      },
+      "expected_result": "Error message",
+      "priority": "Low",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-006",
+      "title": "Masked password",
+      "description": "Test password masking",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid email address",
+        "Enter correct password",
+        "Click the login button"
+      ],
+      "test_data": {
+        "email": "john123@example.com",
+        "password": "password123"
+      },
+      "expected_result": "Password masked",
+      "priority": "Medium",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-007",
+      "title": "Redirected to dashboard",
+      "description": "Test successful login and dashboard redirection",
+      "preconditions": [],
+      "test_steps": [
+        "Enter valid registered email address",
+        "Enter correct password",
+        "Click the login button"
+      ],
+      "test_data": {
+        "email": "john123@example.com",
+        "password": "password123"
+      },
+      "expected_result": "Dashboard page",
+      "priority": "High",
+      "test_type": "Functional"
+    },
+    {
+      "test_case_id": "TC-008",
+      "title": "Locked out",
+      "description": "Test failed login attempts",
+      "preconditions": [],
+      "test_steps": [
+        "Enter invalid email address",
+        "Enter incorrect password",
+        "Click the login button multiple times"
+      ],
+      "test_data": {
+        "email": "invalid@example.com",
+        "password": "wrongpassword"
+      },
+      "expected_result": "Locked out",
+      "priority": "Medium",
+      "test_type": "Functional"
+    }
+  ]
+}
