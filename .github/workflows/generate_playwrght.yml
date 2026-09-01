@@ -1,12 +1,11 @@
 name: Generate and Execute Playwright Tests
 
 on:
-workflow_run:
-workflows:
-- "Generate Test Cases"
-types:
-- completed
-
+  workflow_run:
+    workflows:
+      - "Generate Test Cases"
+    types:
+      - completed
 permissions:
 contents: write
 
